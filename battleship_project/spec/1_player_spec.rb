@@ -9,7 +9,7 @@ describe "Player" do
         input = double("4 7\n", :chomp=>"4 7")
         allow(player).to receive(:gets).and_return(input)
 
-        expect { player.get_move }.to output(/enter a position/).to_stdout
+        expect { player.get_move }.to output(/Enter a position/).to_stdout
       end
 
       it "it should call gets.chomp to get input from the user" do
