@@ -6,11 +6,11 @@ class HumanPlayer
     end
 
     def get_position
-        begin
+        begin 
             print "Player #{@mark}, enter two numbers representing a position in the format `row col`: "
             input = gets.chomp.split(" ")
             valid_input?(input)
-        rescue StandardError => e
+        rescue => e
             puts e.message
             retry
         end
@@ -21,9 +21,8 @@ class HumanPlayer
         if input.length != 2
             raise RuntimeError.new "Sorry, that was invalid"
         end
-        row, col = input
-        row = row.to_i
-        col = col.to_i
+        row, col = [input[0].to_i, input[1].to_i]
+
         if !row.instance_of?(Integer) && !col.instance_of?(Integer)
             raise RuntimeError.new "Sorry, that was invalid"
         end
